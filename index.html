@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "san-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="h-screen bg-[#B7B7B7] font-poppins">
+    <!-- Container -->
+    <div class="w-[1100px] mx-auto mt-[60px] flex">
+      <!-- Playlist Container -->
+      <div class="bg-white p-8">
+        <!-- Playlist Header -->
+        <div class="flex gap-4 mb-8">
+          <!-- Playlist Image -->
+          <div class="w-[150px] h-[150px] grid grid-cols-2 grid-rows-2">
+            <img src="./assets/images/starboy.jpeg" alt="">
+            <img src="./assets/images/summertime-sadness.jpeg" alt="">
+            <img src="./assets/images/falling-down.jpeg" alt="">
+            <img src="./assets/images/moth-to-a-flame.jpeg" alt="">
+          </div>
+          <!-- Playlist Info -->
+          <div>
+            <h3 class="font-medium text-[#B7B7B7] text-base">Album</h3>
+            <h1 class="font-semibold text-2xl mb-2">
+              Late-Night Debug Sessions
+            </h1>
+            <p>by <a class="underline font-semibold" href="">nihattaghizade</a></p>
+            <p class="text-[#B7B7B7] font-medium mt-4">
+              2022  <span class="ml-[15px]">·</span> <span id="numberOfSongs" class="ml-[15px]"> 16 songs <span class="ml-[15px]">·</span> </span>
+              <span id="totalDuration" class="ml-[15px]">51m 49s</span>
+            </p>
+          </div>
+        </div>
+        <!-- Playlist -->
+        <div>
+           <!-- Playlist Titles -->
+            <div class="text-[#B7B7B7] text-sm p-1.5 border-b border-[#B7B7B7] flex justify-between ">
+              <div>
+                <span class="me-6">#</span>
+                <span>Title</span>
+              </div>
+              <span>Duration</span>
+            </div>
+            <!-- Playlist Songs -->
+            <div class="h-[400px] ">
+              <ul id="playlist" class="h-auto overflow-none"> 
+                  <!-- Song Item -->
+                    <!-- <li id="eachSong" class="cursor-pointer flex justify-between p-2 text-[#B7B7B7] border-b border-[#B7B7B7] mb-2">
+                      <div class="flex">
+                          <span class="me-8">1</span>
+                          <h3 class="text-black ">Summertime-Sadness</h3>
+                      </div>
+                      <span class="">1:36</span>
+                    </li> -->
+              </ul>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Player -->
+      <div class=" relative w-[500px] bg-[#11202B] text-white pt-8 px-[100px] text-center">
+        
+        <div class="volume-control absolute ml-[-80px]    mt-11 flex flex-col items-center gap-2 opacity-30 transition-all duration-300 linear hover:opacity-100">
+          <div id="volume-bar" class="transform rotate-180 h-40 w-1 bg-gray-500 relative overflow-hidden cursor-pointer rounded-[10px] ">
+              <div id="volume" class="w-1 h-full bg-white"></div>
+          </div>
+          <div class="volume-icon w-6 h-6 cursor-pointer">
+              <img src="./assets/icons/volume.svg" alt="volume icon" class=" unmuteIcon">
+              <img src="./assets/icons/mute.svg" alt="volume icon" class="hidden muteIcon">
+              <!-- <div class="bar w-full h-0 bg-black"></div> -->
+          </div>
+        </div>
+
+        <p id="songplayInfo" class="text-base mb-4">Paused</p>
+        <!-- Song Info -->
+        <div>
+            <div class="w-[300px] h-[300px] mb-5">
+                <img id="songImage" src="" alt="">
+                <audio id="song" src=""></audio>
+            </div>
+            <h2 id="songTitle" class="mb-2 text-2xl"></h2>
+            <h4 id="artist" class="text-base text-[#B7B7B7]"></h4>
+        </div>
+        <!-- Progress -->
+        <div id="progressContainer" class="mt-4 h-[3px] bg-[#B7B7B7] cursor-pointer rounded relative">
+            <div id="progressFill" class="absolute w-0 h-full bg-white rounded"></div>
+        </div>
+        <!-- Curent Time and Duration -->
+        <div class="flex justify-between text-[#B7B7B7] text-sm mt-1">
+            <span id="currentTime"></span>
+            <span id="duration"></span>
+        </div>
+        <!-- Controls Button -->
+        <div class="mt-[10px] flex gap-[10px] justify-center">
+            <button id="previous" class="w-[75px] h-[75px] rounded-full bg-white flex items-center justify-center ">
+                <img src="./assets/icons/previous.svg" alt="">
+            </button>
+            <button id="playAndPause"  class="w-[75px] h-[75px] rounded-full bg-white flex items-center justify-center">
+                <img src="./assets/icons/play.svg" alt="">
+            </button>
+            <button id="next" class="w-[75px] h-[75px] rounded-full bg-white flex items-center justify-center">
+                <img src="./assets/icons/next.svg" alt="">
+            </button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
